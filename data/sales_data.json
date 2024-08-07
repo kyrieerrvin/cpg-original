@@ -1,0 +1,14 @@
+[
+    { "month": "January", "sales": 1000 },
+    { "month": "February", "sales": 1170 },
+    { "month": "March", "sales": 660 },
+    { "month": "April", "sales": 1030 },
+    { "month": "May", "sales": 1200 },
+    { "month": "June", "sales": 1450 },
+    { "month": "July", "sales": 980 },
+    { "month": "August", "sales": 1400 },
+    { "month": "September", "sales": 1130 },
+    { "month": "October", "sales": 950 },
+    { "month": "November", "sales": 1500 },
+    { "month": "December", "sales": 1700 }
+]

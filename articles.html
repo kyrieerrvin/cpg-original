@@ -31,7 +31,7 @@
                 <a class="nav-link" href="#article2">Article 2</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#article3" data-bs-toggle="modal" data-bs-target="#loginModal">Article 3</a>
+                <a class="nav-link" href="#" id="article3Link" data-bs-toggle="modal" data-bs-target="#loginModal" data-redirect="article3.html">Article 3</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#article4">Portfolio</a>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row " data-aos="fade-up">
                     <div class="col-lg-12">
                         <div class="card-custom rounded bg-base shadow-effect">
                             <div class="ratio ratio-16x9">
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-custom rounded bg-base shadow-effect">
                             <div class="card-custom-content p-4">
                                 <h4>Medal Distribution - Pie Chart</h4>
@@ -88,27 +88,13 @@
                             <div id="piechart" style="width:100%; max-width:600px; height:500px;"></div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-custom rounded  bg-base shadow-effect">
                             <div class="card-custom-content p-4">
                                 <h4>Medal Distribution - Bar Chart</h4>
                             </div>
                             <div id="barchart" style="width:100%; max-width:600px; height:500px;"></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ARTICLE 3 SECTION -->
-        <section id="article3" class="full-height px-lg-5" style="display:none;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h1 class="display-4 fw-bold" data-aos="fade-down" data-aos-delay="300">An Aspiring <span class="text-brand">Computer Engineer</span> Student from DLSU Manila</h1>
-                        <p class="lead mt-2 mb-4" data-aos="fade-down" data-aos-delay="300">I am Ervin Raphael Alba</p>
-                        <a href="#services" class="btn btn-brand me-3">Explore</a>
-                        <a href="#home" class="link-custom">ervin_raphael_alba@dlsu.edu.ph</a>
                     </div>
                 </div>
             </div>
@@ -125,21 +111,31 @@
                     <div class="modal-body">
                         <form id="loginForm">
                             <div class="mb-3">
-                                <label for="username" class="form-label">User ID</label>
-                                <input type="text" id="username" class="form-control" placeholder="User ID" required>
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" class="form-control" placeholder="Password" required>
+                                <input type="password" class="form-control" id="password" required>
                             </div>
+                            <input type="hidden" id="redirectPath" value="">
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
-                        <div id="errorAlert" class="alert alert-danger mt-3" role="alert" style="display:none">Invalid credentials. Please try again.</div>
+                        <div id="errorAlert" class="alert alert-danger mt-3" role="alert" style="display:none">
+                            Invalid credentials. Please try again.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+    <script src="static/login.js"></script>
+    <script>
+        document.getElementById('article3Link').addEventListener('click', function() {
+            document.getElementById('redirectPath').value = 'article3.html';
+        });
+    </script>
 
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>

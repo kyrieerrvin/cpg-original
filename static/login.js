@@ -1,35 +1,54 @@
-function handleLogin(event, successCallback) {
-    event.preventDefault(); 
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    const errorAlert = document.getElementById('errorAlert');
 
-    $.ajax({
-        data: {
-            username: $('#userId').val(),
-            password: $('#password').val()
-        },
-        type: 'POST',
-        url: '/login'
-    })
-    .done(function(data) {
-        if (data.status === "error") {
-            $('#errorAlert').text('Error: Invalid User ID or Password.').show();
-            $('#successAlert').hide();
-        } else if (data.status === "success") {
-            $('#successAlert').text("Login successful! Redirecting...").show();
-            $('#errorAlert').hide();
+    if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-            setTimeout(successCallback, 1000); 
-        }
-    })
-    .fail(function(jqXHR, textStatus, errorThrown) {
-        $('#errorAlert').text('An unexpected error occurred: ' + textStatus).show();
-        $('#successAlert').hide();
-    });
-}
+            const loginData = {
+                username: username,
+                password: password
+            };
 
-$(document).ready(function() {
-    $('#loginForm').submit(function(event) {
-        handleLogin(event, function() {
-            window.location.href = '/home.html'; // Redirect after main login (if needed)
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    loginModal.hide();
+                    // Redirect to the desired page
+                    const redirectPath = document.getElementById('redirectPath').value;
+                    window.location.href = redirectPath;
+                } else {
+                    errorAlert.style.display = 'block';
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
-    });
+    }
+
+    // Set up modal triggers with correct redirect paths
+    const techArticlesLink = document.getElementById('techArticlesLink');
+    const article3Link = document.getElementById('article3Link');
+
+    if (techArticlesLink) {
+        techArticlesLink.addEventListener('click', () => {
+            document.getElementById('redirectPath').value = 'articles.html';
+        });
+    }
+
+    if (article3Link) {
+        article3Link.addEventListener('click', () => {
+            document.getElementById('redirectPath').value = 'article3.html';
+        });
+    }
 });
