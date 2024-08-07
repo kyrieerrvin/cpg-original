@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Technical Articles</title>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!--NAVIGATION BAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container flex-lg-column">
+          <a class="navbar-brand mx-lg-auto mb-lg-4" href="home.html">
+            <span class="h3 fw-bold d-block d-lg-none">Ervin Alba</span>
+            <img src="assets/dp.jpg" class="d-none d-lg-block rounded-circle" alt="">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#article1">YOU IN ARTICLE 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#article2">Article 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Article 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#article4">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#article5">Photo Album</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!--CONTENT-->
+    <div id="content-wrapper">
+         <!-- LINE CHART SECTION -->
+         <section id="article1" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">ARTICLE 1</h6>
+                        <h1>What is Computer Engineering?</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-custom rounded bg-base shadow-effect">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/avZTQgLs064" title="" frameBorder="0"   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowFullScreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- ARTICLE 3 SECTION -->
+        <section id="article2" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">ARTICLE 2</h6>
+                        <h1>Olympics Medal Tally</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card-custom rounded bg-base shadow-effect">
+                            <div class="card-custom-content p-4">
+                                <h4>Medal Distribution - Pie Chart</h4>
+                            </div>
+                            <div id="piechart" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card-custom rounded  bg-base shadow-effect">
+                            <div class="card-custom-content p-4">
+                                <h4>Medal Distribution - Bar Chart</h4>
+                            </div>
+                            <div id="barchart" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+    <script>AOS.init();</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="static/aos.js"></script>
+    <script src="static/script.js"></script>
+    <script src="static/charts.js"></script>
+
+</body>
+</html>
