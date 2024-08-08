@@ -1,0 +1,33 @@
+<!-- Article 4 Section -->
+<section id="article4" class="full-height px-lg-5">
+    <div class="container">
+        <div class="row pb-4" data-aos="fade-up">
+            <div class="col-lg-8">
+                <h6 class="text-brand">ARTICLE 4</h6>
+                <h1>Dynamic Content</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-custom rounded bg-base shadow-effect p-4">
+                    <div id="dynamic-content">
+                        <!-- Content from the Node.js server will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Fetch dynamic content for Article 4 from the Node.js server
+    fetch('/article4')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('dynamic-content').innerHTML = data;
+        })
+        .catch(error => {
+            document.getElementById('dynamic-content').innerText = 'Failed to load content.';
+        });
+</script>

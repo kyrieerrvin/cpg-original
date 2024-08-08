@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="/static/style.css">
     <title>Ervin Alba's Professional Website</title>
+    
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar">
     <!--NAVIGATION BAR-->
@@ -34,10 +35,10 @@
                 <a class="nav-link" href="#" id="article3Link" data-bs-toggle="modal" data-bs-target="#loginModal" data-redirect="article3.html">Article 3</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#article4">Portfolio</a>
+                <a class="nav-link" href="#article4">Article 4</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#article5">Photo Album</a>
+                <a class="nav-link" href="#article5">Article 5</a>
               </li>
             </ul>
           </div>
@@ -129,6 +130,69 @@
             </div>
         </div>
 
+        <!-- ARTICLE 4 SECTION -->
+        <section id="article4" class="full-height px-lg-5">
+            <div class="container">
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <h6 class="text-brand">ARTICLE 4</h6>
+                        <h1>Professional Services Quotation - Node JS</h1>
+                    </div>
+                </div>
+                <div class="row gy-5">
+                    <div class="col-lg-12">
+                        <h3 data-aos="fade-up" data-aos-delay="300">File Upload Form</h3>
+                            <div class="row gy-4">
+                                <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                                    <div class="bg-base p-4 rounded shadow-effect">
+                                        <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
+                                            <label for="files"><h5>Choose Files</h5></label><br>
+                                            <p>accepted files: html, jpg, jpeg, png, gif, pdf</p>
+                                            <input type="file" id="files" name="files" accept=".html,.jpg,.jpeg,.png,.gif,.pdf" multiple><br><br>
+                                            <input type="submit" value="Submit">
+                                        </form>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                                    <div class="bg-base p-4 rounded shadow-effect">
+                                        <div class="uploaded-content-container">
+                                            <h3>Uploaded File Content</h3>
+                                            <div id="uploadedContent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLE 5 SECTION -->
+        <section id="article4" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-custom rounded bg-base shadow-effect">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-custom rounded  bg-base shadow-effect">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
     <script src="static/login.js"></script>
     <script>
@@ -144,8 +208,10 @@
     <script>AOS.init();</script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script src="static/script.js"></script>
     <script src="static/aos.js"></script>
     <script src="static/charts.js"></script>
+    <script src="static/file.js"></script>
+
+
 </body>
 </html>

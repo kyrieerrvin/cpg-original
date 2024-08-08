@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .upload-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .upload-container h3 {
+            margin-top: 0;
+        }
+
+        .uploaded-content-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .uploaded-content-container h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h3>File Upload Form</h3>
+        <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
+            <label for="files">Choose HTML Files</label>
+            <input type="file" id="files" name="files" accept=".html" multiple><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="uploaded-content-container">
+        <h3>Uploaded HTML File Content</h3>
+        <div id="uploadedContent"></div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').onsubmit = function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Upload successful!');
+                displayUploadedFile(data.files[0].path);
+            })
+            .catch(error => {
+                console.error('Error uploading files:', error);
+                alert('Error uploading files.');
+            });
+        }
+
+        function displayUploadedFile(filePath) {
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    const container = document.createElement('div');
+                    container.innerHTML = data;
+                    container.style.border = "1px solid #ddd";
+                    container.style.padding = "10px";
+                    container.style.marginTop = "10px";
+                    container.style.overflow = "auto";
+                    container.style.maxHeight = "400px";  // Adjust height as needed
+                    document.getElementById('uploadedContent').appendChild(container);
+                })
+                .catch(error => {
+                    console.error('Error displaying uploaded file:', error);
+                });
+        }
+    </script>
+</body>
+</html>
