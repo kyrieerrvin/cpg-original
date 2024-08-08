@@ -9,7 +9,6 @@ const PORT = 3000;
 
 app.use(cors());
 
-// Set up storage for multer
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, 'uploads/');  // Directory to save uploaded files
@@ -24,6 +23,9 @@ const upload = multer({ storage: storage });
 // Serve static files from the current directory
 app.use(express.static(__dirname));
 
+// Serve React app
+app.use('/react', express.static(path.join(__dirname, 'article-5/build')));
+
 // Route to serve root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'articles.html'));
@@ -34,8 +36,6 @@ app.post('/upload', upload.array('files', 10), (req, res) => {
     const files = req.files;
 
     console.log('Files:', files);
-
-    // Respond with details of the uploaded files
     res.json({
         message: 'Files uploaded successfully',
         files: files.map(file => ({

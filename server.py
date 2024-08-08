@@ -15,6 +15,8 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.serve_file('articles.html', 'text/html')
         elif self.path == '/article3.html':
             self.serve_file('article3.html', 'text/html')
+        elif self.path == '/documentation.html':
+            self.serve_file('documentation.html', 'text/html')
         elif self.path.startswith('/static/'):
             self.send_static_file(self.path[1:])  # Serve static files
         elif self.path.startswith('/assets/'):
